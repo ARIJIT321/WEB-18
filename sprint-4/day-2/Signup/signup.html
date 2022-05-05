@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    #container{
+        width: 450px;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 20px;
+    }
+    #container>div{
+        text-align: center;
+    }
+    form{
+        margin: auto;
+    }
+    input{
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 400px;
+    }
+    button{
+        background-color: grey;
+        color: rgb(57, 53, 53);
+        width: 400px;
+        border: none;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+        <div>Sign Up</div>
+    <form action="" id="signup">
+        <div>Full name</div>
+        <input type="text" id="name" placeholder="Enter your full name">
+        <div>Email</div>
+        <input type="email" id="email" placeholder="Enter email">
+        <div>Password</div>
+        <input type="password" id="password" placeholder="Enter password">
+        <p>By signing up, i accept the Masai School <a href="">Terms of Service</a>and acknowladge the <a href="">Privecy Policy</a></p>
+        <button id="sign">SIGN UP</button>
+    </form>
+    <div>Already have an account? <a href="">Sign In</a></div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("#sign").addEventListener("click",signUpComplete)
+
+    var detailsArr =JSON.parse(localStorage.getItem("credentials")) || []
+    function signUpComplete(){
+        event.preventDefault()
+        detailsObj = {
+            fullname:signup.name.value,
+            emailadress:signup.email.value,
+            password:signup.password.value
+        }
+        detailsArr.push(detailsObj)
+        localStorage.setItem("credentials",JSON.stringify(detailsArr))
+        window.location.href="login.html"
+    }
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #container{
+        width: 450px;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 20px;
+    }
+    #container>div{
+        text-align: center;
+    }
+    form{
+        margin: auto;
+    }
+    input{
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 400px;
+    }
+    button{
+        background-color: grey;
+        color: rgb(57, 53, 53);
+        width: 400px;
+        border: none;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div>Log in</div>
+    <form action="" id="login">
+        <div>Email</div>
+        <input type="email" id="email" placeholder="Enter email">
+        <div>Password</div>
+        <input type="password" id="password" placeholder="Enter password">
+        <button id="log">Log In</button>
+    </form>
+    <div>Already have an account? <a href="">Sign In</a></div>
+    </div>
+</body>
+</html>
+<script>
+    var detailsArr =JSON.parse(localStorage.getItem("credentials")) || []
+
+    document.querySelector("#log").addEventListener("click",logingIn)
+
+    function logingIn(){
+        event.preventDefault()
+
+        var obj = {
+            email:login.email.value,
+            password:login.password.value
+        }
+
+        for (var i=0; i<detailsArr.length; i++)
+        {
+            if((obj.email==detailsArr[i].emailadress) && (obj.password==detailsArr[i].password))
+            {
+                alert("login succesful")
+                console.log("yes")
+            }
+        }
+        console.log(obj)
+    }
+</script>
